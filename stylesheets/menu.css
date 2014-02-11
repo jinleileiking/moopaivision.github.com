@@ -1,0 +1,145 @@
+/* CSS Document */
+
+/*下拉菜单*/
+.menu {
+font-family: verdana, sans-serif, "宋体";
+width:961px;
+position:relative;
+font-size:12px;
+padding-bottom:0px;
+top:19px;
+*top:53px !important;
+*top:53px;
+z-index:9999;
+}
+.menu ul {
+padding:0;
+margin:0;
+list-style-type: none;
+}
+.menu ul li {
+float:right;
+position:relative;
+}
+.menu ul li a, .menu ul li a:visited {
+display:block;
+text-decoration:none;
+width:190px;
+height:30px;
+color:#ccc;
+border:0px solid #333;
+border-width:0 0 1px 0;
+background:transparent;
+padding-left:10px;
+line-height:30px;
+}
+* html .menu ul li a, .menu ul li a:visited {
+width:190px;
+w\idth:190px;
+}
+.menu ul li ul {
+display: none;
+}
+.menu table {
+margin:-1px;
+border-collapse:collapse;
+font-size:12px;
+}
+
+/* specific to non IE browsers */
+.menu ul li:hover a {
+color:#fff;
+background:#968454;
+}
+.menu ul li:hover ul {
+display:block;
+position:absolute;
+top:30px; /* 下拉菜单定位 */
+margin-top:1px;
+left:0;
+width:200px;
+background:#666;
+}
+.menu ul li:hover ul li ul {
+display: none;
+}
+.menu ul li:hover ul li a {
+display:block;
+background:transparent;
+color:#ccc;
+height:auto;
+line-height:1.2em;
+padding:5px 0px 5px 10px;
+width:190px;/* 下拉菜单宽度 */
+}
+.menu ul li:hover ul li a.drop {
+background:#000 url(../../graphics/drop.gif) bottom right no-repeat;
+color:#ccc;
+}
+.menu ul li:hover ul li a:hover {
+background:#a5955e;
+color:#fff;
+}
+.menu ul li:hover ul li:hover ul {
+display:block;
+position:absolute;
+left:-200px;
+top:-1px;
+width:200px;
+}
+.menu ul li:hover ul li:hover ul.left {
+left:-200px;
+}/* 二级下拉菜单定位 */
+
+</style>
+<!--[if lte IE 6]>
+<style type="text/css">
+.menu ul li a:hover {
+color:#fff;
+background:#bd8d5e;
+}
+.menu ul li a:hover ul {
+display:block;
+position:absolute;
+top:3em;
+left:0;
+background:#fff;
+margin-top:0;
+marg\in-top:1px;
+}
+.menu ul li a:hover ul li a {
+display:block;
+background:#dbe4ab;
+color:#000;
+height:auto;
+line-height:1.5em;
+padding:5px 10px;
+width:200px;
+w\idth:200px;
+}
+.menu ul li a:hover ul li a.drop {
+background:#c9c9a7 url(../../graphics/drop.gif) bottom right no-repeat;
+}
+.menu ul li a:hover ul li a ul {
+visibility:hidden;
+position:absolute;
+height:0;
+width:0;
+}
+.menu ul li a:hover ul li a:hover {
+background:#c9c9a7; color:#000;
+}
+.menu ul li a:hover ul li a:hover ul {
+visibility:visible;
+position:absolute;
+top:0;
+color:#000;
+left:240px;
+}
+.menu ul li a:hover ul li a:hover ul.footleft {
+left:-240px;
+}
+
+</style>
+<![endif]-->
+/*下拉菜单*/

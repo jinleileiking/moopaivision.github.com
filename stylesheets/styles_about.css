@@ -1,20 +1,11 @@
-
 HTML {
 	HEIGHT: 100%
 }
 BODY {
-	HEIGHT: 100%;
+	HEIGHT: 100%
 }
 
 
-#fW_Content {
-WIDTH: 100%; height:600px;
-	background-image:url(../images/bg16.jpg);
-}
-
-#fW_Content IMG {
-	WIDTH: 960px; height:600px;  border:0px;
-}
 #fW_Controls {
 	DISPLAY: inline; FLOAT: left; MARGIN: 8px 0px 0px 865px; WIDTH: 120px; HEIGHT: 42px
 }
@@ -26,4 +17,37 @@ WIDTH: 100%; height:600px;
 }
 #fW_Controls A:hover {
 	BACKGROUND-POSITION: 0px -30px; COLOR: #ff5300
+}
+
+.footername{font-family: Geneva, Arial, "宋体";
+color:#999;
+width:960px;
+text-align:center;
+font-size:11px;
+}
+
+/*---底部链接样式---*/
+.foota{
+	text-decoration:none;
+	font-size:11px;
+margin-right:6px;
+}
+
+a.foota{
+	color:#999;
+	text-decoration:none;
+}
+a.foota:link {
+	color:#999;
+	text-decoration:none;
+}
+
+a.foota:visited {
+	color:#999;
+	text-decoration:none;
+}
+
+a.foota:hover {
+	color:#ccc;
+	text-decoration:underline;
 }

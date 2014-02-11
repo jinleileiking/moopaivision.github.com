@@ -1,71 +1,286 @@
-<!doctype html>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Moopaivision.github.com by jinleileiking</title>
+    <head>
+        <meta http-equiv="Content-Language" content="zh-cn">
+        <meta http-equiv="Content-Style-Type" content="text/css">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Moopaivision.github.com</h1>
-        <p></p>
+        <meta name="keywords" content="婚礼摄影, 纪实婚礼摄影, 婚礼摄影师, 香港, 上海, 北京, 杭州, 希腊, 新西兰, 尼泊尔, 旅行婚纱照">
+        <meta name="description" content="婚礼摄影师，AGWPJA全球艺术婚礼摄影师协会大赛冠军，WPJA全球纪实婚礼摄影师协会会员，2008年北京奥运会开幕式图片提供者">
 
-        <p class="view"><a href="https://github.com/jinleileiking/moopaivision.github.com">View the Project on GitHub <small>jinleileiking/moopaivision.github.com</small></a></p>
+        <!--[if lte IE 6]>
+        <link rel="stylesheet" rev="stylesheet" href="css_index/menu4ie6.css" type="text/css" media="all">
+        <![endif]-->
+        <title>Leon Wong, a wedding photojournalist</title>
+        <script type="text/javascript" src="javascripts/highslide-full.js"></script>
+
+        <LINK href="stylesheets/styles.css" type=text/css rel=stylesheet>
+        <LINK href="stylesheets/styles_about.css" type=text/css rel=stylesheet>
+        <link rel="stylesheet" type="text/css" href="stylesheets/highslide.css" />
+        <link rel="stylesheet" rev="stylesheet" href="stylesheets/menu.css" type="text/css" media="all">   
+        <!--[if lt IE 7]>
+        <link rel="stylesheet" type="text/css" href="highslide/highslide-ie6.css" />
+        <![endif]-->
 
 
-        <ul>
-          <li><a href="https://github.com/jinleileiking/moopaivision.github.com/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/jinleileiking/moopaivision.github.com/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/jinleileiking/moopaivision.github.com">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+        <!--
+        2) Optionally override the settings defined at the top
+        of the highslide.js file. The parameter hs.graphicsDir is important!
+        Add the slideshow and do some adaptations to this example.
+        -->
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+        <script type="text/javascript">
+            //<![CDATA[
+        hs.graphicsDir = '../highslide/graphics/';
+        hs.showCredits = false;
+        hs.transitions = ['expand', 'crossfade'];
+        hs.restoreCursor = null;
+        hs.lang.restoreTitle = '';
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+        // Add the slideshow providing the controlbar and the thumbstrip
+        hs.addSlideshow({
+                //slideshowGroup: 'group1',
+interval: 3000,
+repeat: true,
+useControls: 0,
+overlayOptions: {
+position: 'bottom right',
+offsetY: 50
+},
+thumbstrip: {
+position: 'above',
+mode: 'horizontal',
+relativeTo: 'expander'
+}
+});
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+// Options for the in-page items
+var inPageOptions = {
+    //slideshowGroup: 'group1',
+outlineType: null,
+             allowSizeReduction: false,
+             wrapperClassName: 'in-page controls-in-heading',
+             useBox: true,
+             width: 960,
+             height: 600,
+             targetX: 'gallery-area 0px',
+             targetY: 'gallery-area 0px',
+             numberPosition: '',
+             autoplay: true
+}
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+// Open the first thumb on page load
+hs.addEventListener(window, 'load', function() {
+        document.getElementById('thumb1').onclick();
+        });
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+// Cancel the default action for image click and do next instead
+hs.Expander.prototype.onImageClick = function() {
+    if (/in-page/.test(this.wrapper.className))	return hs.next();
+}
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+// Under no circumstances should the static popup be closed
+hs.Expander.prototype.onBeforeClose = function() {
+    if (/in-page/.test(this.wrapper.className))	return false;
+}
+// ... nor dragged
+hs.Expander.prototype.onDrag = function() {
+    if (/in-page/.test(this.wrapper.className))	return false;
+}
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+// Keep the position after window resize
+hs.addEventListener(window, 'resize', function() {
+        var i, exp;
+        hs.getPageSize();
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+        for (i = 0; i < hs.expanders.length; i++) {
+        exp = hs.expanders[i];
+        if (exp) {
+        var x = exp.x,
+        y = exp.y;
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+        // get new thumb positions
+        exp.tpos = hs.getPosition(exp.el);
+        x.calcThumb();
+        y.calcThumb();
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/jinleileiking">jinleileiking</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+        // calculate new popup position
+        x.pos = x.tpos - x.cb + x.tb;
+        x.scroll = hs.page.scrollLeft;
+        x.clientSize = hs.page.width;
+        y.pos = y.tpos - y.cb + y.tb;
+        y.scroll = hs.page.scrollTop;
+        y.clientSize = hs.page.height;
+        exp.justify(x, true);
+        exp.justify(y, true);
+
+        // set new left and top to wrapper and outline
+        exp.moveTo(x.pos, y.pos);
+        }
+        }
+});
+//]]>
+</script>
+
+<!--
+3) Modify some of the styles
+-->
+<style type="text/css">
+    .highslide-image {
+        border: 0px solid white;
+    }
+    .highslide-controls {
+        width: 65px !important;
+    }
+    .highslide-controls .highslide-close {
+        display: none;
+    }
+    .highslide-caption {
+        padding: .5em 0;
+    }
+</style>
+<style type="text/css">
+
+    body {
+
+        background: #333;
+
+        width:expression(document.body.clientWidth <= 960? "960px": "auto" );
+
+        min-width:960px;
+        vertical-align:middle;
+
+    }
+
+</style>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-32309687-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+</script>
+</head>
+
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" oncontextmenu=self.event.returnValue=false
+    onselectstart="return false">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+        <tr>
+            <td valign="middle">
+
+                <div style="width:960px; margin:0 auto;">
+
+                    <!--Menu Begin-->
+                    <div class="menu">
+                        <ul>
+                            <li>
+                            <!--[if IE 6]><a href=""><table><tr><td><![endif]-->
+                                            <a href="/">分类 >></a>
+                                            <table><tr><td>
+
+
+                                                        <ul>
+<!--                                                            <li>-->
+                                                            <!--[if IE 6]><a href="../leonwong/" target="_blank">GALLERY<table><tr><td><![endif]-->    
+<!--                                                                            <a href="../leonwong/" target="_blank">GALLERY</a>-->
+
+<!--                                                                            <ul>-->
+<!--                                                                                <li><a href="../leonwong/" target="_blank">WEDDING</a></li>-->
+<!--                                                                                <li><a href="../leonwong_bw/" target="_blank">WEDDING B&W</a></li>-->
+<!--                                                                                <li><a href="../personalwork/" target="_blank">PERSONAL WORK</a></li>-->
+<!--                                                                            </ul>-->
+                                                                            <!--[if IE 6]></td></tr></table></a><![endif]-->
+<!--                                                            </li>-->
+
+                                                            <li><a href="../blog/" target="_blank">婚纱照</a></li>
+
+                                                            <li><a href="../contact/" target="_blank">婚礼</a></li>
+
+                                                            <li><a href="../blog/?p=146" target="_blank">旅行</a></li>
+                                                            <li><a href="../worldtour/" target="_blank">介绍</a></li>    
+
+
+                                                        </ul>
+                                                        <!--[if IE 6]></td></tr></table></a><![endif]-->
+
+                            </td></tr></table>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <!--Menu End-->
+
+                    <a href="/"><img alt="Leon Wong, AGWPJA International Award Winning Wedding Photographer |Hong Kong|香港|上海|北京|杭州|新西兰 纪实婚礼摄影师 蜜月旅行婚纱照" title="LEON WONG - A WEDDING PHOTOJOURNALIS" src="images_index/logo.gif" border="0" width="186" height="50"></a>
+                </div>
+
+
+                <div style="background: #999; width:100%;">
+                    <div style="width:100%; margin:0 auto;">
+                        <div id="fW_Content">
+
+                            <div class="hidden-container">
+                                <!--
+                                5) This is how you mark up the thumbnail images with an anchor tag around it.
+                                The anchor's href attribute defines the URL of the full-size image. Given the captionEval
+                                option is set to 'this.a.title', the caption is grabbed from the title attribute of
+                                the anchor.
+                                -->
+                                <a id="thumb1" class='highslide' href='photo/1.jpg'
+                                    onclick="return hs.expand(this, inPageOptions)">
+                                </a>
+
+                                <a class='highslide' href='photo/2.jpg'
+                                    onclick="return hs.expand(this, inPageOptions)">
+                                </a>
+
+
+                            </div>		
+
+                            <div id="gallery-area" style="width: 960px; height: 600px;overflow: hidden; background:#7d7d7d; margin: 0 auto; border: 0px solid #808080"></div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="footername" style="width:960px; margin:0 auto;">
+                    <div class="footerlink">
+
+                        <div style="height:5px"> 
+                        </div> 
+<!--                        <div style="float:right"><a href="http://www.agwpja.com/photography-contests/45-agwpja-q3-2011/01-getting-ready.html#1" title="AGWPJA全球艺术婚礼摄影师协会大赛冠军" target="_blank"><img src="../images_index/agwpja_award.jpg" width="72" height="38" border="0"></a>&nbsp;&nbsp;&nbsp;<a href="http://www.wpja.com/wedding-photographers/wedding-photojournalist-profile/5816-zhejiang-roswell-huang.htm" target="_blank" title="WPJA全球纪实婚礼摄影师协会会员"><img src="../images_index/wpja_member.jpg" width="59" height="38" border="0"></a>&nbsp;&nbsp;&nbsp;<a href="http://www.agwpja.com/artistic-wedding-photojournalism/5637-zhejiang-weddings/photographer-leon-wong.html" target="_blank" title="AGWPJA全球艺术婚礼摄影师协会会员"><img src="../images_index/agwpja_member.jpg" width="59" height="38" border="0"></a>&nbsp;&nbsp;&nbsp;<a href="http://www.ispwp.com/china-wedding-photographers/hangzhou-wedding-photographer-leon-wong-photo" target="_blank" title="A Member of ISPWP"><img src="../images_index/ispwp.jpg" width="71" height="38" border="0"></a><br>-->
+<!--                        </div>-->
+                        <div style="float:left">
+                            <a class="foota">1st Place International Awards Winning Wedding Photographer.</a>
+                        </div>
+                        <div style="display:none;"><script TYPE="text/javascript" language="javascript" src="http://count30.51yes.com/click.aspx?id=307044230&logo=12"></script>
+                            <script type="text/javascript">
+                                var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                                document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fdaa7e42178ee96b48a6a3f63acd57196' type='text/javascript'%3E%3C/script%3E"));
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+        </tr></table>
+
+        <audio autoplay="autoplay" loop="loop">
+        <source src="bgsound.mp3" type="audio/mp3" />
+        </audio>
+
+    </body>
 </html>
+
