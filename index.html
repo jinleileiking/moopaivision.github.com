@@ -25,152 +25,106 @@
         <!--[if lt IE 7]>
         <link rel="stylesheet" type="text/css" href="highslide/highslide-ie6.css" />
         <![endif]-->
+         <link href="stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
 
 
 
-        <!--
-        2) Optionally override the settings defined at the top
-        of the highslide.js file. The parameter hs.graphicsDir is important!
-        Add the slideshow and do some adaptations to this example.
-        -->
 
-        <script type="text/javascript">
-            //<![CDATA[
-        hs.graphicsDir = '../highslide/graphics/';
-        hs.showCredits = false;
-        hs.transitions = ['expand', 'crossfade'];
-        hs.restoreCursor = null;
-        hs.lang.restoreTitle = '';
 
-        // Add the slideshow providing the controlbar and the thumbstrip
-        hs.addSlideshow({
-                //slideshowGroup: 'group1',
-interval: 3000,
-repeat: true,
-useControls: 0,
-overlayOptions: {
-position: 'bottom right',
-offsetY: 50
-},
-thumbstrip: {
-position: 'above',
-mode: 'horizontal',
-relativeTo: 'expander'
-}
-});
+        <style type="text/css">
+          /* Customize the navbar links to be fill the entire space of the .navbar */
+          .navbar .navbar-inner {
+            background: #333;
+            width:999px;
+            top:19px;
+            *top:53px !important;
+            *top:53px;
+            
+            min-height: 25px;
+            padding: 0;
+            margin: 0;
+            width: 500px;
+            float: right;
+            font-family: verdana, sans-serif, "宋体";
+            position:relative;
+            font-size:12px;
+          }
+          .navbar .nav {
+            margin: 0;
+            display: table;
+            width: 100%;
+          }
+          .navbar .nav li {
+            display: table-cell;
+            width: 1%;
+            float: none;
+          }
+          .navbar .nav li a {
+            text-align: center;
+            border-left: 1px solid rgba(255,255,255,.75);
+            border-right: 1px solid rgba(0,0,0,.1);
+            padding: 2px 5px 2px;
+            text-shadow: 0 1px 0 #444;
+            color: #999;
+          }
+          .navbar .nav li:first-child a {
+            border-left: 0;
+            border-radius: 3px 0 0 3px;
+          }
+          .navbar .nav li:last-child a {
+            border-right: 0;
+            border-radius: 0 3px 3px 0;
+          }
 
-// Options for the in-page items
-var inPageOptions = {
-    //slideshowGroup: 'group1',
-outlineType: null,
-             allowSizeReduction: false,
-             wrapperClassName: 'in-page controls-in-heading',
-             useBox: true,
-             width: 700,
-             height: 500,
-             targetX: 'gallery-area 0px',
-             targetY: 'gallery-area 0px',
-             numberPosition: '',
-             autoplay: true
-}
+        .navbar .nav > .active > a,
+        .navbar .nav > .active > a:hover,
+        .navbar .nav > .active > a:focus {
+          color: #fff;
+          text-decoration: none;
+          background-color: #777;
+          -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+             -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+                  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+              }
 
-// Open the first thumb on page load
-hs.addEventListener(window, 'load', function() {
-        document.getElementById('thumb1').onclick();
-        });
-
-// Cancel the default action for image click and do next instead
-hs.Expander.prototype.onImageClick = function() {
-    if (/in-page/.test(this.wrapper.className))	return hs.next();
-}
-
-// Under no circumstances should the static popup be closed
-hs.Expander.prototype.onBeforeClose = function() {
-    if (/in-page/.test(this.wrapper.className))	return false;
-}
-// ... nor dragged
-hs.Expander.prototype.onDrag = function() {
-    if (/in-page/.test(this.wrapper.className))	return false;
-}
-
-// Keep the position after window resize
-hs.addEventListener(window, 'resize', function() {
-        var i, exp;
-        hs.getPageSize();
-
-        for (i = 0; i < hs.expanders.length; i++) {
-        exp = hs.expanders[i];
-        if (exp) {
-        var x = exp.x,
-        y = exp.y;
-
-        // get new thumb positions
-        exp.tpos = hs.getPosition(exp.el);
-        x.calcThumb();
-        y.calcThumb();
-
-        // calculate new popup position
-        x.pos = x.tpos - x.cb + x.tb;
-        x.scroll = hs.page.scrollLeft;
-        x.clientSize = hs.page.width;
-        y.pos = y.tpos - y.cb + y.tb;
-        y.scroll = hs.page.scrollTop;
-        y.clientSize = hs.page.height;
-        exp.justify(x, true);
-        exp.justify(y, true);
-
-        // set new left and top to wrapper and outline
-        exp.moveTo(x.pos, y.pos);
+        .navbar .nav > li > a:focus,
+        .navbar .nav > li > a:hover {
+          color: #ddd;
+          text-decoration: none;
+          background-color: transparent;
         }
+
+    </style>
+
+    <style type="text/css">
+        .highslide-image {
+            border: 0px solid white;
         }
-});
-//]]>
-</script>
+        .highslide-controls {
+            width: 65px !important;
+        }
+        .highslide-controls .highslide-close {
+            display: none;
+        }
+        .highslide-caption {
+            padding: .5em 0;
+        }
+    </style>
 
-<!--
-3) Modify some of the styles
--->
-<style type="text/css">
-    .highslide-image {
-        border: 0px solid white;
-    }
-    .highslide-controls {
-        width: 65px !important;
-    }
-    .highslide-controls .highslide-close {
-        display: none;
-    }
-    .highslide-caption {
-        padding: .5em 0;
-    }
-</style>
-<style type="text/css">
 
-    body {
 
-        background: #000;
+    <style type="text/css">
+        body {
 
-        width:expression(document.body.clientWidth <= 960? "960px": "auto" );
+            background: #000;
 
-        min-width:960px;
-        vertical-align:middle;
+            width:expression(document.body.clientWidth <= 960? "960px": "auto" );
 
-    }
+            min-width:960px;
+            vertical-align:middle;
 
-</style>
-<!--<script type="text/javascript">-->
-
-<!--    var _gaq = _gaq || [];-->
-<!--    _gaq.push(['_setAccount', 'UA-32309687-1']);-->
-<!--    _gaq.push(['_trackPageview']);-->
-
-<!--    (function() {-->
-<!--     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;-->
-<!--     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';-->
-<!--     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);-->
-<!--     })();-->
-
-<!--</script>-->
+        }
+    </style>
 </head>
 
 <body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" oncontextmenu=self.event.returnValue=false
@@ -179,18 +133,41 @@ hs.addEventListener(window, 'resize', function() {
         <tr>
             <td valign="middle">
 
-                <div style="width:960px; margin:0 auto;">
+                <div style="width:800px; margin:0 auto;">
+
+
+                <div class="navbar">
+                  <div class="navbar-inner">
+                    <div class="container">
+                      <ul class="nav">
+                        <li class="active"><a href="#">HOME</a></li>
+                        <li><a href="#">PRE-WEDDING</a></li>
+                        <li><a href="#">WEDDING</a></li>
+                        <li><a href="#">TRAVEL</a></li>
+                        <li><a href="#">INTRO</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div><!-- /.navbar -->
+
 
                     <!--Menu Begin-->
-                    <div class="menu">
-                        <ul>
-                            <li>
+<!--                    <div class="menu">-->
+<!--                        <ul>-->
+<!--                            <li>-->
+
+
                             <!--[if IE 6]><a href=""><table><tr><td><![endif]-->
-                                            <a href="/">CATEGORY >></a>
-                                            <table><tr><td>
 
 
-                                                        <ul>
+
+
+<!--                                            <a href="/">CATEGORY >></a>-->
+<!--                                            <table><tr><td>-->
+
+
+<!--                                                        <ul>-->
+
 <!--                                                            <li>-->
                                                             <!--[if IE 6]><a href="../leonwong/" target="_blank">GALLERY<table><tr><td><![endif]-->    
 <!--                                                                            <a href="../leonwong/" target="_blank">GALLERY</a>-->
@@ -203,24 +180,25 @@ hs.addEventListener(window, 'resize', function() {
                                                                             <!--[if IE 6]></td></tr></table></a><![endif]-->
 <!--                                                            </li>-->
 
-                                                            <li><a href="../photo/" target="_blank">PRE-WEDDING PHOTO</a></li>
-                                                            <li><a href="../wedding/" target="_blank">WEDDING</a></li>
-                                                            <li><a href="../travel/" target="_blank">TRAVEL</a></li>
-                                                            <li><a href="../intro/" target="_blank">INTRO</a></li>    
+<!--                                                            <li><a href="../photo/" target="_blank">PRE-WEDDING PHOTO</a></li>-->
+<!--                                                            <li><a href="../wedding/" target="_blank">WEDDING</a></li>-->
+<!--                                                            <li><a href="../travel/" target="_blank">TRAVEL</a></li>-->
+<!--                                                            <li><a href="../intro/" target="_blank">INTRO</a></li>    -->
 
 
-                                                        </ul>
+<!--                                                        </ul>-->
                                                         <!--[if IE 6]></td></tr></table></a><![endif]-->
 
-                            </td></tr></table>
-                            </li>
+<!--                            </td></tr></table>-->
+<!--                            </li>-->
 
-                        </ul>
-                    </div>
+<!--                        </ul>-->
+<!--                    </div>-->
 
                     <!--Menu End-->
 
-                    <a href="/"><img alt="MOOPAI VISION - 沐白视觉" title="MOOPAI VISION - 沐白视觉" src="images/logo.jpg" border="0" width="186" height="50"></a>
+                    <a href="/"><img alt="MOOPAI VISION - 沐白视觉" title="MOOPAI VISION - 沐白视觉" src="images/logo.jpg" 
+                        border="0" height="50"></a>
                 </div>
 
 
@@ -279,6 +257,123 @@ hs.addEventListener(window, 'resize', function() {
         <source src="bgsound.mp3" type="audio/mp3" />
         </audio>
 
+        <!--
+        2) Optionally override the settings defined at the top
+        of the highslide.js file. The parameter hs.graphicsDir is important!
+        Add the slideshow and do some adaptations to this example.
+        -->
+
+        <script type="text/javascript">
+            //<![CDATA[
+        hs.graphicsDir = '../highslide/graphics/';
+        hs.showCredits = false;
+        hs.transitions = ['expand', 'crossfade'];
+        hs.restoreCursor = null;
+        hs.lang.restoreTitle = '';
+
+        // Add the slideshow providing the controlbar and the thumbstrip
+        hs.addSlideshow({
+                //slideshowGroup: 'group1',
+            interval: 3000,
+            repeat: true,
+            useControls: 0,
+            overlayOptions: {
+            position: 'bottom right',
+            offsetY: 50
+            },
+            thumbstrip: {
+            position: 'above',
+            mode: 'horizontal',
+            relativeTo: 'expander'
+            }
+            });
+
+// Options for the in-page items
+            var inPageOptions = {
+                //slideshowGroup: 'group1',
+            outlineType: null,
+                         allowSizeReduction: false,
+                         wrapperClassName: 'in-page controls-in-heading',
+                         useBox: true,
+                         width: 700,
+                         height: 500,
+                         targetX: 'gallery-area 0px',
+                         targetY: 'gallery-area 0px',
+                         numberPosition: '',
+                         autoplay: true
+            }
+
+            // Open the first thumb on page load
+            hs.addEventListener(window, 'load', function() {
+                    document.getElementById('thumb1').onclick();
+                    });
+
+            // Cancel the default action for image click and do next instead
+            hs.Expander.prototype.onImageClick = function() {
+                if (/in-page/.test(this.wrapper.className))	return hs.next();
+            }
+
+            // Under no circumstances should the static popup be closed
+            hs.Expander.prototype.onBeforeClose = function() {
+                if (/in-page/.test(this.wrapper.className))	return false;
+            }
+            // ... nor dragged
+            hs.Expander.prototype.onDrag = function() {
+                if (/in-page/.test(this.wrapper.className))	return false;
+            }
+
+            // Keep the position after window resize
+            hs.addEventListener(window, 'resize', function() {
+                    var i, exp;
+                    hs.getPageSize();
+
+                    for (i = 0; i < hs.expanders.length; i++) {
+                    exp = hs.expanders[i];
+                    if (exp) {
+                    var x = exp.x,
+                    y = exp.y;
+
+                    // get new thumb positions
+                    exp.tpos = hs.getPosition(exp.el);
+                    x.calcThumb();
+                    y.calcThumb();
+
+                    // calculate new popup position
+                    x.pos = x.tpos - x.cb + x.tb;
+                    x.scroll = hs.page.scrollLeft;
+                    x.clientSize = hs.page.width;
+                    y.pos = y.tpos - y.cb + y.tb;
+                    y.scroll = hs.page.scrollTop;
+                    y.clientSize = hs.page.height;
+                    exp.justify(x, true);
+                    exp.justify(y, true);
+
+                    // set new left and top to wrapper and outline
+                    exp.moveTo(x.pos, y.pos);
+                    }
+                    }
+            });
+            //]]>
+    </script>
+
+
+<!--<script type="text/javascript">-->
+
+<!--    var _gaq = _gaq || [];-->
+<!--    _gaq.push(['_setAccount', 'UA-32309687-1']);-->
+<!--    _gaq.push(['_trackPageview']);-->
+
+<!--    (function() {-->
+<!--     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;-->
+<!--     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';-->
+<!--     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);-->
+<!--     })();-->
+
+<!--</script>-->
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
     </body>
 </html>
 
