@@ -8,12 +8,12 @@ BODY {
 
 
 #fW_Content {
-WIDTH: 100%; height:600px;
-	background-image:url(../images/bg16.jpg);
+WIDTH: 100%; height:500px;
+/*    background-image:url(../images/bg16.jpg);*/
 }
 
 #fW_Content IMG {
-	WIDTH: 960px; height:600px;  border:0px;
+	WIDTH: 700; height:500;  border:0px;
 }
 #fW_Controls {
 	DISPLAY: inline; FLOAT: left; MARGIN: 8px 0px 0px 865px; WIDTH: 120px; HEIGHT: 42px
